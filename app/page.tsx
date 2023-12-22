@@ -6,7 +6,7 @@ import { SWRProvider } from "./swr-provider";
 
 export default function Home() {
   const { data, isLoading } = useSWR("/api/starwards", getPerson);
-  console.log("data", data);
+
   return (
     <SWRProvider>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
