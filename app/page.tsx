@@ -3,6 +3,7 @@
 import useSWR from "swr";
 import { getPerson } from "./api/starwards";
 import { SWRProvider } from "./swr-provider";
+import Loading from "./loading";
 
 export default function Home() {
   const { data, isLoading } = useSWR("/api/starwards", getPerson);
@@ -11,7 +12,7 @@ export default function Home() {
     <SWRProvider>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         {isLoading ? (
-          <p>Loading...</p>
+          <Loading />
         ) : (
           <>
             <div className="grid md:grid-cols-2 sm:grid-cols-1">
