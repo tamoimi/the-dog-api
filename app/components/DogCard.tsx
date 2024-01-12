@@ -1,7 +1,8 @@
 import useSWR from "swr";
-import { getDogData } from "../api/dog-api";
+import { getDogData, getFunFact } from "../api/dog-api";
 import Loading from "../loading";
 import Image from "next/image";
+import FunFact from "./FunFact";
 
 const DogCard = () => {
   const { data, isLoading } = useSWR("api/dog-api", getDogData, {
@@ -10,13 +11,13 @@ const DogCard = () => {
     revalidateOnReconnect: false,
   });
 
-  // const { data: dataImg, isLoading: loadingImg } = useSWR("/api/dog-img", getDogs, {
-  //   refreshInterval: 86400000, // refresh once a day
-  //   revalidateOnFocus: false,
-  //   revalidateOnReconnect: false,
-  // });
+  const { data: factData, isLoading: factLoading } = useSWR("/api/dog-fun-facts", getFunFact, {
+    refreshInterval: 86400000, // refresh once a day
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
 
-  console.log("data", data);
+  console.log("factData", factData);
 
   return (
     <>
@@ -24,6 +25,7 @@ const DogCard = () => {
         <Loading />
       ) : (
         <>
+          <FunFact />
           <div className="grid md:grid-cols-2 sm:grid-cols-1">
             {/* {dataImg?.map((i: any) => (
               <div key={i.id}>
