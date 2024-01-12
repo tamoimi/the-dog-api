@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Cards from "./components/Cards";
+import Cards from "./components/DogCard";
 import { SWRProvider } from "./swr-provider";
 
 export default function Home() {
