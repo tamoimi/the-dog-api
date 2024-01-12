@@ -13,3 +13,6 @@ export const getDogData = () => {
   return axios.get(`${baseUrlV2}/breeds`).then((res) => res.data);
 };
 
+export const getFunFact = () => {
+  return axios.get(`${baseUrlV2}/facts`).then((res) => res.data);
+};
