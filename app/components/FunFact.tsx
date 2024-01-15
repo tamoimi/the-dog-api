@@ -1,7 +1,6 @@
 import useSWR from "swr";
-import { getDogData, getFunFact } from "../api/dog-api";
+import { getFunFact } from "../api/dog-api";
 import Loading from "../loading";
-import Image from "next/image";
 
 const FunFact = () => {
   const { data: factData, isLoading: factLoading } = useSWR("/api/dog-fun-facts", getFunFact, {
