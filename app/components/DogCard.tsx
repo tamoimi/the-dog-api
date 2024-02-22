@@ -36,19 +36,25 @@ const DogCard = () => {
             {data?.data.map((dog: any) => (
               <div key={dog.id} className="m-5">
                 <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <h5 className="mb-2 text-xl underline decoration-blue-400  font-bold tracking-tight text-gray-900 dark:text-white">
                     {dog.attributes.name}
                   </h5>
-                  <p className="text-gray-700 dark:text-gray-400">{dog.attributes.description}</p>
-                  <p className="text-gray-700 dark:text-gray-400">
-                    Life Span: {dog.attributes.life.min} - {dog.attributes.life.max} years
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-400">
-                    Male Weight: {dog.attributes.male_weight.min} - {dog.attributes.male_weight.max} kg
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-400">
-                    Female Weight: {dog.attributes.female_weight.min} - {dog.attributes.female_weight.max} kg
-                  </p>
+                  <div className="bg-neutral-100 p-2 rounded-md mb-2">
+                    <p className="text-gray-700 dark:text-gray-400 ">
+                      <span className="font-semibold">Life Span:</span> {dog.attributes.life.min} -{" "}
+                      {dog.attributes.life.max} years
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-400">
+                      <span className="font-semibold">Male Weight:</span>{" "}
+                      {dog.attributes.male_weight.min} - {dog.attributes.male_weight.max} kg
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-400">
+                      <span className="font-semibold">Female Weight:</span>{" "}
+                      {dog.attributes.female_weight.min} - {dog.attributes.female_weight.max} kg
+                    </p>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-400 text-sm">{dog.attributes.description}</p>
+
                   {/* Uncomment and modify to display dog images */}
                   {/* <Image src={dogImageURL} alt={dog.attributes.name} width={200} height={200} /> */}
                 </div>
